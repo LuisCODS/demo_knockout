@@ -1,5 +1,4 @@
-// This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
-
+// This is a simple *viewmodel*
 // ========================== class 1 =======================================
 
 function AppViewModel() {
@@ -38,7 +37,6 @@ function SeatReservation(name, initialMeal) {
 
 // ========================== class 3 =======================================
 // View-model class
-
 function ReservationsViewModel() {
     let self = this;
 
