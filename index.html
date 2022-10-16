@@ -5,7 +5,11 @@
         <title>Title</title>
     </head>
     <body>
-        <!-- =============== binding observable TEXT, CLICK & VALUE ================== -->
+        <!--
+        ======================== EXEMPLE 1 ==============================
+                        binding observable TEXT, CLICK & VALUE
+        =================================================================
+
         <div>
             <p>First name:
                 <strong data-bind="text: firstName">
@@ -30,33 +34,55 @@
                     <input data-bind="value: lastName" />
                 </label>
             </p>
-            <!-- using the click binding to associate clicks with the viewmodel function-->
+            using the click binding to associate clicks with the viewmodel function
             <button data-bind="click: capitalizeLastName">Go caps</button>
-
-            <ul data-bind="foreach: list">
-                <li data-bind="text: @data"></li>
-            </ul>
         </div>
+        -->
 
-        <!-- ====================== binding observable arrays =================== -->
-        <div>
+        <!--
+        ======================== EXEMPLE 2 ==============================
+                        binding observable arrays
+        =================================================================
+         -->
+         <div>
             <h2>Your seat reservations</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+                        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th>Action</th>
                     </tr>
                 </thead>
-                <!--  binding observable arrays-->
                 <tbody data-bind="foreach: seats">
                     <tr>
-                        <td data-bind="text: name"></td>
-                        <td data-bind="text: meal().mealName"></td>
-                        <td data-bind="text: meal().price"></td>
+                        <td>
+                            <input  data-bind="value: name">
+                        </td>
+                        <td>
+                            <select data-bind="options: $root.availableMeals,
+                                               value: meal,
+                                               optionsText: 'mealName'">
+                            </select>
+                        </td>
+                        <td data-bind="text: formattedPrice"></td>
+                        <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
                     </tr>
                 </tbody>
             </table>
+            <button data-bind="click: addSeat">Reserver another seat</button>
+             <h3 data-bind="visible: totalSurcharge() > 0">
+                 Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+             </h3>
         </div>
+
+        <!--
+        ======================== EXEMPLE 3 ==============================
+                        binding observable arrays
+        =================================================================
+
+        <ul data-bind="foreach: monTableau">
+            <li data-bind="text: $data"></li>
+        </ul>
+        -->
 
         <script src='knockout-3.5.1.js'></script>
         <script src="custom.js"></script>
