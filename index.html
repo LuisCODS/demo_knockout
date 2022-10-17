@@ -39,13 +39,13 @@
         </div>
         -->
 
-        <!--
+<!--
         ======================== EXEMPLE 2 ==============================
                         binding observable arrays
         =================================================================
-         -->
+-->
          <div>
-            <h2>Your seat reservations</h2>
+            <h2>Your seat reservations(<span data-bind="text: seats().length"></span>)</h2>
             <table>
                 <thead>
                     <tr>
@@ -64,17 +64,20 @@
                             </select>
                         </td>
                         <td data-bind="text: formattedPrice"></td>
-                        <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+                        <td>
+                            <a href="#" data-bind="click: $root.removeSeat">Remove</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <button data-bind="click: addSeat">Reserver another seat</button>
+            <button data-bind="click: addSeat, enable: seats().length < 5">Reserver another seat</button>
              <h3 data-bind="visible: totalSurcharge() > 0">
-                 Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+                 Total surcharge: $ <span data-bind="text: totalSurcharge()"></span>
              </h3>
         </div>
 
-        <!--
+
+<!--
         ======================== EXEMPLE 3 ==============================
                         binding observable arrays
         =================================================================
@@ -82,7 +85,7 @@
         <ul data-bind="foreach: monTableau">
             <li data-bind="text: $data"></li>
         </ul>
-        -->
+-->
 
         <script src='knockout-3.5.1.js'></script>
         <script src="custom.js"></script>

@@ -1,6 +1,7 @@
 
 // ========================= EXEMPLE 1 ==============================
 /*
+
 // Class
 function AppViewModel() {
 
@@ -32,6 +33,8 @@ ko.applyBindings(new AppViewModel());
 
 // =====================  EXEMPLE 2  ==================================
 
+
+
 // Class to represent a row in the seat reservations grid
 function SeatReservation(name, initialMeal) {
     // attributs
@@ -49,7 +52,6 @@ function SeatReservation(name, initialMeal) {
 //class
 function ReservationsViewModel() {
     var self = this;
-
     // object providing meal data
     self.availableMeals = [
         { mealName: "Standard (sandwich)",      price: 0 },
@@ -75,19 +77,11 @@ function ReservationsViewModel() {
        for (let i = 0; i < self.seats().length; i++) {
          total += self.seats()[i].meal().price;
        }
-        return total;
+        return total.toFixed(2);
     });
 }
 // Activates knockout
 ko.applyBindings(new ReservationsViewModel());
 
 
-// =====================  EXEMPLE 3  ==================================
-/*
-// Class
-function ViewModel(){
-    var self = this;
-    self.monTableau = ko.observableArray([1,2,3,4,5]);
-}
-ko.applyBindings(new ViewModel());
-* */
+
