@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <!--
+            ======================== EXEMPLE 2 ==============================
+                                binding observable arrays
+            =================================================================
+        -->
+         <div>
+            <h2>Your seat reservations(<span data-bind="text: seats().length"></span>)</h2>
+            <table>
+                <thead><tr><th>Passenger name</th><th>Meal</th><th>Surcharge</th><th>Action</th></tr></thead>
+                <tbody data-bind="foreach: seats">
+                <tr>
+                    <td><input  data-bind="value: name" /></td>
+                    <td>
+                        <select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'">
+                        </select>
+                    </td>
+                    <td data-bind="text: formattedPrice"></td>
+                    <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <button data-bind="click: addSeat, enable: seats().length < 5">Reserver another seat</button>
+             <h3 data-bind="visible: totalSurcharge() > 0">
+                 Total surcharge: $ <span data-bind="text: totalSurcharge()"></span>
+             </h3>
+        </div>
+        <script src='../js/knockout-3.5.1.js'></script>
+        <script src="reservationsViewModel.js"></script>
+    </body>
+</html>
