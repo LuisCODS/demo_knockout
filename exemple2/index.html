@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <!--
@@ -10,7 +12,10 @@
                                 binding observable arrays
             =================================================================
         -->
-         <div>
+        <div class="alert alert-info" role="alert">
+            A simple info alert—check it out!
+        </div>
+         <div class="container">
             <h2>Your seat reservations(<span data-bind="text: seats().length"></span>)</h2>
             <table>
                 <thead><tr><th>Passenger name</th><th>Meal</th><th>Surcharge</th><th>Action</th></tr></thead>
@@ -18,7 +23,10 @@
                 <tr>
                     <td><input  data-bind="value: name" /></td>
                     <td>
-                        <select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'">
+                        <select
+                                data-bind="options: $root.availableMeals,
+                                           value: meal,
+                                           optionsText: 'mealName'">
                         </select>
                     </td>
                     <td data-bind="text: formattedPrice"></td>
@@ -31,7 +39,12 @@
                  Total surcharge: $ <span data-bind="text: totalSurcharge()"></span>
              </h3>
         </div>
+
+
         <script src='../js/knockout-3.5.1.js'></script>
         <script src="reservationsViewModel.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" ></script>
     </body>
 </html>

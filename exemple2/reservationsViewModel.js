@@ -1,5 +1,3 @@
-
-
 // =====================  EXEMPLE 2  ==================================
 
 // Class to represent a row in the seat reservations grid
