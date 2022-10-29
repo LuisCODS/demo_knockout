@@ -7,49 +7,45 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
+    <br>
+    <br>
          <div class="container">
              <div class="row">
-                 <div class="col-md-12">
-                     <div class="alert alert-info" role="alert" data-binf="text: alert.message">
-                         Knockout JS #4.2 Binding - Prática
-                     </div>
+                  <!-- ALERT CENTER -->
+                 <div class=" col-md-12">
+                     <div data-bind="text: alert().msn, visible: alert().show, css: alert().type "></div>
                  </div>
                  <!-- COL ESQUERDA -->
-                 <div class="col-4">
+                 <div class="col-md-4">
                      <strong>Liste de intems</strong>
+                     <hr>
                      <ul class="list-group" data-bind="foreach: list">
-                         <li class="list-group-item">
-                             <input type="checkbox" class="mx-3" /><span data-bind="text:description"></span>
+                         <li class="list-group-item" data-bind="css: {'item-checked': coche}">
+                             <input type="checkbox" class="mx-3" data-bind="checked: coche"/>
+                             <span data-bind="text: description"></span>
                          </li>
                      </ul>
                  </div>
                  <!-- COL DIREITA -->
                  <div class="col-8">
-                     <div class="row">
-                         <div class="col-xs-12">
-                             <label>Description item</label>
-                         </div>
-                         <div class="col-xs-12">
-                             <input type="text" class="form-contol input-5m" data-bind="value: input_descriptionItem">
-                         </div>
-                         <div class="col-xs-12">
-                             <br>
-                         </div>
-                         <div class="col-xs-12">
-                             <button class="btn btn-primary btn-block" data-bind="click: addItem">Ajouter item</button>
-                         </div>
-                     </div>
+                     <div class="col-md-12"><label>Description item</label></div>
+                     <div class="col-md-12"><input type="text" class="form-contol input-5m" data-bind="value: input_description"></div>
+                     <div class="col-md-12"><button class="btn btn-primary btn-block mt-3" data-bind="click: addItem ">Ajouter item</button></div>
                  </div>
-                 <div class="col-12">
-                     <div class="col-xs-2 total" style="display:inline-block">Total: </div>
-                     <div class="col-xs-2 total mx-2" style="display:inline-block" data-bind="text: list().length"></div>
-                     <div class="col-xs-2 total mx-1" style="display:inline-block"><input type="checkbox" /> :</div>
-                     <div class="col-xs-2 total" style="display:inline-block">1</div>
-                     <div class="col-xs-2 total mx-4" style="display:inline-block"><input type="checkbox" checked /> :</div>
-                     <div class="col-xs-2 total" style="display:inline-block">1</div>
+                 <!-- BOTTON -->
+                 <div class="col-xs-8">
+                     <div class="col-xs-2 total"   style="display:inline">Total itens: </div>
+                     <div class="col-xs-2 total"   style="display:inline-block" data-bind="text: list().length"></div>
+                     <br>
+                     <div class="col-xs-2 total"   style="display:inline"><input type="checkbox" /> :</div>
+                     <div class="col-xs-2 total"   style="display:inline-block">1</div>
+                     <br>
+                     <div class="col-xs-2 total"   style="display:inline">Total checkeds:</div>
+                     <div class="col-xs-2 total"   style="display:inline-block" data-bind="text: itensChecados"></div>
                  </div>
              </div>
         </div>
+
         <script src='../js/knockout-3.5.1.js'></script>
         <script src="viewModel3.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
