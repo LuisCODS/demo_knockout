@@ -24,18 +24,12 @@ function ViewModel3(){
 
     //  Return a total of checked itens
     self.totalCheckedItens = ko.pureComputed(function(){
-         var count = self.list().filter(function(item){
-             return item.coche();
-         }).length;
-         return count;
+        return count = self.list().filter(function(item){ return item.coche(); }).length;
     });
 
     //  Return a total of unchecked itens
     self.totalUchekedsItens = ko.pureComputed(function(){
-        var count = self.list().filter(function(item){
-            return !item.coche();
-        }).length;
-        return count;
+        return  self.list().filter(function(item){ return !item.coche(); }).length;
     });
 
 }// end class
