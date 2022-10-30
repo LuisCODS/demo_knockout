@@ -1,4 +1,4 @@
-//class
+// class data model
 function ViewModel3(){
 
     var self = this;
@@ -25,29 +25,24 @@ function ViewModel3(){
     };
 
     // delete itens from list
-    self.deleteItem = (obj) => {
-        const index = self.list.indexOf(obj);
-        if (index > -1) { // only splice array when item is found
-            // 2nd parameter means remove one item only
-            self.list.splice(index, 1);
-        }
+    self.deleteItem = (data) => {
+        self.list.remove(data);
     }
 
-    //  Return a total of checked itens
+    //  Return a total of checked items
     self.totalCheckedItens = ko.pureComputed(function(){
-        return count = self.list().filter(function(item){ return item.coche(); }).length;
+        return self.list().filter(function(item){ return item.coche(); }).length;
     });
 
-    //  Return a total of unchecked itens
+    //  Return a total of unchecked items
     self.totalUchekedsItens = ko.pureComputed(function(){
-        return  self.list().filter(function(item){ return !item.coche(); }).length;
+        return self.list().filter(function(item){ return !item.coche(); }).length;
     });
 
 }// end class
 
-v3 = new ViewModel3();
 // Activates knockout
-ko.applyBindings(v3);
+ko.applyBindings(new ViewModel3());
 
 
 

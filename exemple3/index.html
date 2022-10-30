@@ -21,6 +21,7 @@
                          <li class="list-group-item" data-bind="css: {'item-checked': coche}">
                              <input type="checkbox" class="mx-3" data-bind="checked: coche"/>
                              <span data-bind="text: description"></span>
+                             <!-- ici un nouveau context est crée: ca prend le $parent -->
                              <button data-bind="click: function(){ $parent.deleteItem($data) }"> Delete</button>
                          </li>
                      </ul>
@@ -30,7 +31,14 @@
                  <div class="col-6">
                      <div class="col-md-12"><label>Description item</label></div>
                      <div class="col-md-12"><input type="text" class="form-contol input-5m" data-bind="value: input_description"></div>
-                     <div class="col-md-12"><button class="btn btn-primary btn-block mt-3" data-bind="click: addItem">Ajouter item</button></div>
+                     <div class="col-md-12">
+                         <!-- CONDITION KO POUR L'AFFICHAGE DU BOUTON -->
+                         <!-- ko if: list().length < 3 -->
+                         <button class="btn btn-primary btn-block mt-3" data-bind="click: addItem">
+                             Add item
+                         </button>
+                         <!-- /ko -->
+                     </div>
                  </div>
                  <!-- BOTTON -->
                  <div class="col-xs-12">

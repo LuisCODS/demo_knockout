@@ -7,22 +7,55 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <!--
-            ======================== EXEMPLE 1 ==============================
-                            binding observable TEXT, CLICK & VALUE
-            =================================================================
-       -->
-        <div>
-            <p>First name:<strong        data-bind="text: firstName">todo</strong></p>
-            <p>Last name:<strong         data-bind="text: lastName" >todo</strong></p>
-            <p>Your full name is:<strong data-bind="text: fullName"></strong></p>
-            <p>First name:<label><input  data-bind="value: firstName" /></label></p>
-            <p>Last name:<label><input   data-bind="value: lastName" /></label></p>
-            using the click binding to associate clicks with the viewmodel function
-            <br>
-            <br>
-            <button data-bind="click: capitalizeLastName()">Go caps</button>
-        </div>
+        <!--  ======================== EXEMPLE 1 =============================== -->
+        <container id="exemple1">
+            <div class="alert alert-info" role="alert">
+                EXEMPLE 1
+            </div>
+            <div>
+                <p>First name:<strong        data-bind="text: firstName">todo</strong></p>
+                <p>Last name:<strong         data-bind="text: lastName" >todo</strong></p>
+                <p>Your full name is:<strong data-bind="text: fullName"></strong></p>
+                <p>First name:<label><input  data-bind="value: firstName" /></label></p>
+                <p>Last name:<label><input   data-bind="value: lastName" /></label></p>
+                using the click binding to associate clicks with the viewmodel function
+                <br>
+                <br>
+                <button data-bind="click: function(){ capitalizeLastName() }">Go caps</button>
+            </div>
+        </container>
+        <hr>
+        <!--  ======================== EXEMPLE 2 =============================== -->
+        <container id="exemple2">
+            <div class="alert alert-info" role="alert">
+                EXEMPLE 2
+            </div>
+            <div class="container">
+                <h2>Your seat reservations(<span data-bind="text: seats().length"></span>)</h2>
+                <table>
+                    <thead><tr><th>Passenger name</th><th>Meal</th><th>Surcharge</th><th>Action</th></tr></thead>
+                    <tbody data-bind="foreach: seats">
+                        <tr>
+                            <td><input  data-bind="value: name" /></td>
+                            <td>
+                                <select
+                                        data-bind="options: $root.availableMeals,
+                                                   value: meal,
+                                                   optionsText: 'mealName'">
+                                </select>
+                            </td>
+                            <td data-bind="text: formattedPrice"></td>
+                            <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button data-bind="click: addSeat, enable: seats().length < 5">Reserver another seat</button>
+                <h3 data-bind="visible: totalSurcharge() > 0">
+                    Total surcharge: $ <span data-bind="text: totalSurcharge()"></span>
+                </h3>
+            </div>
+        </container>
+
         <script src='../js/knockout-3.5.1.js'></script>
         <script src="appViewModel.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
