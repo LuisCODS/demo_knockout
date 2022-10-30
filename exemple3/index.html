@@ -21,6 +21,7 @@
                          <li class="list-group-item" data-bind="css: {'item-checked': coche}">
                              <input type="checkbox" class="mx-3" data-bind="checked: coche"/>
                              <span data-bind="text: description"></span>
+                             <button id="salut" data-bind="click: function(){ $parent.deleteItem($data) }"> Delete</button>
                          </li>
                      </ul>
                      <br>
@@ -29,7 +30,7 @@
                  <div class="col-6">
                      <div class="col-md-12"><label>Description item</label></div>
                      <div class="col-md-12"><input type="text" class="form-contol input-5m" data-bind="value: input_description"></div>
-                     <div class="col-md-12"><button class="btn btn-primary btn-block mt-3" data-bind="click: addItem ">Ajouter item</button></div>
+                     <div class="col-md-12"><button class="btn btn-primary btn-block mt-3" data-bind="click: addItem">Ajouter item</button></div>
                  </div>
                  <!-- BOTTON -->
                  <div class="col-xs-12">
