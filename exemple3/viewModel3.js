@@ -3,7 +3,7 @@ function ViewModel3(){
 
     var self = this;
 
-    self.list               = ko.observableArray([]);
+    self.list               = ko.observableArray();
     self.input_description  = ko.observable("");
     self.deleteItem         = ko.observable("");
     self.alert              = ko.observable( {show: true, msn: "Add itens to list!", type: "alert alert-secondary"} );
@@ -41,11 +41,5 @@ function ViewModel3(){
 
 }// end class
 
-// Activates knockout
+// Activates knockout and Binding context
 ko.applyBindings(new ViewModel3());
-
-
-
-
-
-

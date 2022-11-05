@@ -24,7 +24,7 @@ function AppViewModel() {
 
 }// fin class
 /*
-    Activates knockout:
+    Activates knockout(this is a special JavaScript objects):
     The first parameter says what view model object you want to use with the declarative bindings it activates
     second parameter to define which part of the document you want to search for data-bind attributes
 */
